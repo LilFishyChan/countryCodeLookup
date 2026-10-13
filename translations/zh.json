@@ -1,0 +1,42 @@
+{
+  "Country Code Lookup": { "Country Code Lookup": "国家区号查询" },
+  "Type a phone dial code (e.g. +86) or a country name (e.g. China / 中国) in the launcher. Selecting a result copies it.": {
+    "Type a phone dial code (e.g. +86) or a country name (e.g. China / 中国) in the launcher. Selecting a result copies it.": "在启动器输入电话区号（如 +86）或国家名称（如 China / 中国），选中结果即可复制。"
+  },
+  "Language": { "Language": "语言" },
+  "Language used for the country names. Defaults to English; missing translations fall back to English.": {
+    "Language used for the country names. Defaults to English; missing translations fall back to English.": "国家名称显示使用的语言。默认英文；缺少翻译时回退英文。"
+  },
+  "Copy Format": { "Copy Format": "复制格式" },
+  "Pressing Enter copies e.g. \"China (+86)\"": { "Pressing Enter copies e.g. \"China (+86)\"": "回车复制，例如 \"China (+86)\"" },
+  "Pressing Enter copies e.g. \"+86 China\"": { "Pressing Enter copies e.g. \"+86 China\"": "回车复制，例如 \"+86 China\"" },
+  "Pressing Enter copies just the country name, e.g. \"China\"": { "Pressing Enter copies just the country name, e.g. \"China\"": "回车只复制国家名称，例如 \"China\"" },
+  "Country name": { "Country name": "国家名称" },
+  "Name (code)": { "Name (code)": "名称（区号）" },
+  "Code Name": { "Code Name": "区号 名称" },
+  "Fuzzy Matching": { "Fuzzy Matching": "模糊匹配" },
+  "Also suggest codes that merely contain the typed digits (+8 → +48, +58, +98 …). Exact and prefix matches always come first.": {
+    "Also suggest codes that merely contain the typed digits (+8 → +48, +58, +98 …). Exact and prefix matches always come first.": "额外提示仅包含所输数字的区号（+8 → +48、+58、+98…）。精确与前缀匹配始终优先。"
+  },
+  "Only suggest codes that start with the typed digits (+8 → +86, +81, +880 …).": {
+    "Only suggest codes that start with the typed digits (+8 → +86, +81, +880 …).": "只提示以所输数字开头的区号（+8 → +86、+81、+880…）。"
+  },
+  "Trigger": { "Trigger": "触发符" },
+  "Prefix typed before the dial code to activate the lookup (e.g. +, cc)": {
+    "Prefix typed before the dial code to activate the lookup (e.g. +, cc)": "在区号前输入的触发前缀（如 +、cc）"
+  },
+  "Always Active": { "Always Active": "始终生效" },
+  "The lookup runs on every search. Typing a phone number such as +86 still works.": {
+    "The lookup runs on every search. Typing a phone number such as +86 still works.": "每次搜索都会运行本查询，输入 +86 这类号码仍可用。"
+  },
+  "Only activate after the trigger above is typed (default: +).": {
+    "Only activate after the trigger above is typed (default: +).": "仅在输入上面的触发符后激活（默认：+）。"
+  },
+  "Examples": { "Examples": "示例" },
+  "Type a country dial code or name": { "Type a country dial code or name": "输入区号或国家名称" },
+  "e.g. +86, +1 767, or search \"China\" / \"中国\"": {
+    "e.g. +86, +1 767, or search \"China\" / \"中国\"": "例如 +86、+1 767，或搜索 \"China\" / \"中国\""
+  },
+  "Copied: %1": { "Copied: %1": "已复制：%1" },
+  "Country Code": { "Country Code": "区号查询" }
+}
