@@ -276,28 +276,45 @@ QtObject {
         if (!displayRaw)
             displayRaw = c._primary || "";
 
+        // A sub-code was matched when the user typed more than the shared root.
+        var qn = normalize(query);
+        var root = String(c.r || "");
+        var matchedSub = !!match.code && match.code !== displayRaw && qn.length > root.length;
+
+        var others = [];
+        if (c._codes.length > 1) {
+            for (var i = 0; i < c._codes.length; i++) {
+                var code = c._codes[i];
+                if (code !== displayRaw && code.length >= 3)
+                    others.push(code);
+            }
+        }
+        if (matchedSub) {
+            var mi = others.indexOf(match.code);
+            if (mi > 0) {
+                others.splice(mi, 1);
+                others.unshift(match.code);
+            } else if (mi === -1) {
+                others.unshift(match.code);
+            }
+        }
+
+        var extrasTotal = others.length;
+        var shownCodes = others.slice(0, maxExtras);
+        var shown = [];
+        for (var k = 0; k < shownCodes.length; k++)
+            shown.push(formatCode(shownCodes[k]));
+
         var comment = formatCode(displayRaw);
         if (english && english !== name)
             comment += " · " + english;
 
-        var extras = [];
-        var extrasTotal = 0;
-        if (c._codes.length > 1) {
-            for (var i = 0; i < c._codes.length; i++) {
-                var code = c._codes[i];
-                if (code !== displayRaw && code.length >= 3) {
-                    extrasTotal++;
-                    if (extras.length < maxExtras)
-                        extras.push(formatCode(code));
-                }
-            }
-        }
-        if (extras.length > 0) {
-            var shown = extras.join(", ");
-            if (extrasTotal > extras.length)
-                comment += " · " + tr("sub-codes: %1 (+%2 more)").arg(shown).arg(extrasTotal - extras.length);
+        if (shown.length > 0) {
+            var list = shown.join(", ");
+            if (extrasTotal > shown.length)
+                comment += " · " + tr("%1 (+%2 more)").arg(list).arg(extrasTotal - shown.length);
             else
-                comment += " · " + tr("sub-codes: %1").arg(shown);
+                comment += " · " + list;
         }
 
         var keywords = [formatCode(displayRaw), displayRaw, english, query];
