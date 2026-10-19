@@ -38,5 +38,7 @@
     "e.g. +86, +1 767, or search \"China\" / \"中国\"": "例如 +86、+1 767，或搜索 \"China\" / \"中国\""
   },
   "Copied: %1": { "Copied: %1": "已复制：%1" },
+  "sub-codes: %1": { "sub-codes: %1": "二级区号：%1" },
+  "sub-codes: %1 (+%2 more)": { "sub-codes: %1 (+%2 more)": "二级区号：%1（另有 %2 个）" },
   "Country Code": { "Country Code": "区号查询" }
 }

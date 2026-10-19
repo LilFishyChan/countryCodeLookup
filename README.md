@@ -105,6 +105,9 @@ Open **Settings → Plugins → Country Code Lookup**:
   entry for Indonesian), so every language is complete.
 - Dependent territories are annotated with the state they belong to
   (see above).
+- NANP sub-codes (area codes) are included for the US and Canada, so a full
+  number such as `+1 367 449` resolves to Canada, and shared `+1` results list
+  their area codes to help tell countries apart.
 
 The file is stored in a readable, formatter-friendly layout (objects expanded,
 arrays kept on one line when they fit).

@@ -21,7 +21,7 @@ QtObject {
     readonly property int maxResults: 50
     readonly property int maxFuzzyResults: 10
     readonly property int manyCodesThreshold: 4
-    readonly property int maxExtras: 3
+    readonly property int maxExtras: 4
 
     signal itemsChanged
 
@@ -281,15 +281,24 @@ QtObject {
             comment += " · " + english;
 
         var extras = [];
+        var extrasTotal = 0;
         if (c._codes.length > 1) {
-            for (var i = 0; i < c._codes.length && extras.length < maxExtras; i++) {
+            for (var i = 0; i < c._codes.length; i++) {
                 var code = c._codes[i];
-                if (code !== displayRaw && code.length >= 3)
-                    extras.push(formatCode(code));
+                if (code !== displayRaw && code.length >= 3) {
+                    extrasTotal++;
+                    if (extras.length < maxExtras)
+                        extras.push(formatCode(code));
+                }
             }
         }
-        if (extras.length > 0)
-            comment += " · e.g. " + extras.slice(0, 2).join(", ");
+        if (extras.length > 0) {
+            var shown = extras.join(", ");
+            if (extrasTotal > extras.length)
+                comment += " · " + tr("sub-codes: %1 (+%2 more)").arg(shown).arg(extrasTotal - extras.length);
+            else
+                comment += " · " + tr("sub-codes: %1").arg(shown);
+        }
 
         var keywords = [formatCode(displayRaw), displayRaw, english, query];
         return {
