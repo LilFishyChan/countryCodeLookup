@@ -2,7 +2,7 @@
     "id": "countryCodeLookup",
     "name": "Country Code Lookup",
     "description": "Look up a country by its phone dial code (e.g. +86, +1 767) or by name (e.g. China / 中国) in the launcher",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "author": "LilFishyChan",
     "icon": "public",
     "type": "launcher",
