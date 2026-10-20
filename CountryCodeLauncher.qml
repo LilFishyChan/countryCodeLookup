@@ -230,7 +230,7 @@ QtObject {
         if (q.length === 0)
             return [];
 
-        var exact = [], prefix = [], full = [], fuzzy = [], roots = [];
+        var exact = [], prefix = [], full = [], fuzzy = [];
 
         for (var i = 0; i < countries.length; i++) {
             var c = countries[i];
@@ -248,21 +248,13 @@ QtObject {
                 fuzzy.push({c: c, code: res.code});
         }
 
-        if (exact.length === 0 && prefix.length === 0 && full.length === 0) {
-            for (var j = 0; j < countries.length; j++) {
-                var r = String(countries[j].r || "");
-                if (r.length > 0 && (r === q || (q.length > r.length && q.indexOf(r) === 0)))
-                    roots.push({c: countries[j], code: r});
-            }
-        }
-
-        var strong = exact.length + prefix.length + full.length + roots.length;
+        var strong = exact.length + prefix.length + full.length;
         // Only add fuzzy hits when there are not already plenty of strong ones,
         // so "+1" stays focused on the actual +1 codes.
         if (strong >= 15)
-            return exact.concat(prefix, full, roots);
+            return exact.concat(prefix, full);
 
-        return exact.concat(prefix, full, roots, fuzzy.slice(0, maxFuzzyResults));
+        return exact.concat(prefix, full, fuzzy.slice(0, maxFuzzyResults));
     }
 
     function makeItem(match, query) {
